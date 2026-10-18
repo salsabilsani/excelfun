@@ -1,0 +1,123 @@
+<!doctype html>
+<html lang="id">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>ExcelFun | Media Pembelajaran Interaktif Rumus Dasar Microsoft Excel</title>
+<style>
+:root{--navy:#173b63;--blue:#2563a6;--sky:#eaf3ff;--ink:#172435;--muted:#5d6b7b;--line:#dce4ee;--bg:#f5f8fc;--white:#fff;--green:#18794e;--red:#b42318;--gold:#f4c95d}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.55 system-ui,-apple-system,"Segoe UI",sans-serif}
+header{background:var(--white);border-bottom:1px solid var(--line);position:sticky;top:0;z-index:10}
+.nav{max-width:1120px;margin:auto;padding:14px 22px;display:flex;align-items:center;justify-content:space-between;gap:18px}
+.brand{font-weight:800;color:var(--navy);display:flex;align-items:center;gap:10px}.brandmark{background:#18794e;color:white;border-radius:9px;padding:5px 9px;font-weight:900}
+nav{display:flex;gap:6px;flex-wrap:wrap}button,.navlink{border:0;border-radius:10px;padding:10px 14px;cursor:pointer;font:inherit;font-weight:650;transition:.15s}
+.navlink{background:transparent;color:var(--muted)}.navlink:hover,.navlink.active{background:var(--sky);color:var(--navy)}
+button.primary{background:var(--blue);color:#fff}button.primary:hover{background:var(--navy)}button.secondary{background:var(--sky);color:var(--navy)}button.ghost{background:transparent;color:var(--navy);border:1px solid var(--line)}button:focus-visible,.navlink:focus-visible{outline:3px solid var(--gold);outline-offset:2px}
+main{max-width:1120px;margin:0 auto;padding:28px 22px 60px}.hero{background:linear-gradient(125deg,#173b63,#2c6eaa);border-radius:24px;padding:clamp(26px,5vw,56px);color:white;display:grid;grid-template-columns:1.4fr .8fr;gap:30px;align-items:center;overflow:hidden}
+.eyebrow{font-size:.78rem;text-transform:uppercase;letter-spacing:.12em;font-weight:800;color:#cfe4ff}.hero h1{font-size:clamp(2rem,4.5vw,3.5rem);line-height:1.1;margin:12px 0}.hero p{color:#e5efff;max-width:620px}.hero-art{background:#ffffff14;border:1px solid #ffffff30;border-radius:20px;padding:20px;transform:rotate(2deg)}
+.sheet{background:white;border-radius:10px;padding:14px;color:#27384a;box-shadow:0 12px 35px #0c2a4d30}.sheet-title{font-size:.85rem;font-weight:800;margin-bottom:8px}.sheet table{width:100%;border-collapse:collapse;font-size:.82rem}.sheet td,.sheet th{border:1px solid #dce5ef;padding:6px;text-align:center}.sheet th{background:#e9f4ed;color:#18794e}
+section{margin-top:34px}.section-head{display:flex;justify-content:space-between;align-items:end;gap:16px;margin-bottom:16px}.section-head h2{margin:0;color:var(--navy);font-size:1.55rem}.section-head p{margin:3px 0 0;color:var(--muted)}
+.grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px}.card{background:white;border:1px solid var(--line);border-radius:16px;padding:20px;box-shadow:0 4px 16px #173b6308}.topic-card{cursor:pointer;text-align:left;width:100%;color:inherit}.topic-card:hover{border-color:#80addc;transform:translateY(-2px)}.topic-card h3{margin:10px 0 5px;color:var(--navy)}.topic-card p{margin:0;color:var(--muted);font-size:.94rem}.iconbox{width:42px;height:42px;border-radius:12px;background:#e8f5ec;color:#18794e;display:grid;place-items:center;font-weight:900;font-size:1.05rem}
+.content-layout{display:grid;grid-template-columns:250px 1fr;gap:20px}.sidebar{align-self:start;position:sticky;top:90px}.sidebar h3{margin:0 0 10px;color:var(--navy)}.topic-list{display:grid;gap:6px}.topic-list button{text-align:left;background:transparent;color:var(--muted)}.topic-list button.active,.topic-list button:hover{background:var(--sky);color:var(--navy)}.lesson h2{margin-top:0;color:var(--navy)}.lesson h3{color:var(--navy)}.formula{background:#102b43;color:#e5f5ec;border-radius:12px;padding:15px 18px;font:600 1.05rem ui-monospace,SFMono-Regular,Consolas,monospace;overflow:auto}.note{border-left:4px solid #3d8b68;background:#eef8f1;padding:12px 15px;border-radius:0 10px 10px 0}.data-table{border-collapse:collapse;width:100%;margin:12px 0;background:#fff}.data-table th,.data-table td{border:1px solid var(--line);padding:10px;text-align:left}.data-table th{background:#eaf3ff;color:var(--navy)}.data-table td:first-child{font-weight:700;color:#18794e}
+.quiz-question{font-weight:750;font-size:1.08rem}.option{display:flex;gap:10px;align-items:flex-start;border:1px solid var(--line);border-radius:12px;padding:12px;margin:8px 0;cursor:pointer;background:#fff}.option:has(input:checked){border-color:var(--blue);background:var(--sky)}.feedback{margin-top:14px;border-radius:12px;padding:14px;display:none}.feedback.good{display:block;background:#eaf7ef;color:#145c39}.feedback.bad{display:block;background:#fff0ef;color:#8f2018}.progress{height:8px;background:#e6ebf2;border-radius:99px;overflow:hidden}.progress span{display:block;height:100%;width:0;background:#25845a;transition:width .2s}.score{font-size:1.2rem;font-weight:800;color:var(--navy)}
+#feedbackStatus{margin-bottom:12px}.topic-card{min-height:165px}.muted{color:var(--muted)}.hidden{display:none!important}.steps{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}.step{background:white;border:1px solid var(--line);border-radius:14px;padding:16px}.step b{color:var(--navy)}footer{background:#102b43;color:#dbe7f5;padding:24px;text-align:center;font-size:.9rem}
+@media(max-width:800px){.hero{grid-template-columns:1fr}.hero-art{max-width:420px}.grid{grid-template-columns:repeat(2,minmax(0,1fr))}.content-layout{grid-template-columns:1fr}.sidebar{position:static}.topic-list{grid-template-columns:repeat(2,minmax(0,1fr))}.steps{grid-template-columns:1fr}}
+@media(max-width:520px){.nav{align-items:flex-start;flex-direction:column}.grid{grid-template-columns:1fr}.topic-list{grid-template-columns:1fr 1fr}main{padding:18px 14px 40px}.hero{padding:24px 20px}.section-head{align-items:start;flex-direction:column}}
+</style>
+</head>
+<body>
+<header>
+  <div class="nav">
+    <div class="brand"><span class="brandmark">EF</span><span>ExcelFun</span></div>
+    <nav aria-label="Navigasi utama">
+      <button class="navlink active" data-page="home">Beranda</button>
+      <button class="navlink" data-page="guide">Petunjuk</button>
+      <button class="navlink" data-page="topicListPage">Daftar Materi</button>
+      <button class="navlink" data-page="practice">Latihan</button>
+    </nav>
+  </div>
+</header>
+<main>
+  <div id="home" class="page">
+    <div class="hero">
+      <div><div class="eyebrow">Media pembelajaran interaktif · Kelas X</div>
+        <h1>ExcelFun<br>Belajar Excel Jadi Seru!</h1>
+        <p>Media pembelajaran interaktif untuk memahami range dan rumus dasar Microsoft Excel melalui materi, contoh sederhana, latihan, dan umpan balik langsung.</p>
+        <button class="primary" data-goto="guide">Mulai Belajar <span aria-hidden="true">→</span></button>
+      </div>
+      <div class="hero-art" aria-label="Ilustrasi tabel data Excel">
+        <div class="sheet"><div class="sheet-title">Contoh data nilai</div><table><tr><th>Sel</th><th>Nilai</th></tr><tr><td>B2</td><td>70</td></tr><tr><td>B3</td><td>80</td></tr><tr><td>B4</td><td>75</td></tr><tr><td>B5</td><td>85</td></tr></table><p style="margin:10px 0 0;color:#18794e;font:700 .9rem ui-monospace">=SUM(B2:B5) → 310</p></div>
+      </div>
+    </div>
+    <section><div class="section-head"><div><h2>Yang akan dipelajari</h2><p>Pilih topik untuk membuka penjelasan dan contoh.</p></div></div>
+      <div class="grid" id="homeTopics"></div>
+    </section>
+    <section><div class="section-head"><div><h2>Alur belajar</h2><p>Belajar bertahap dan ulangi bagian yang masih membingungkan.</p></div></div>
+      <div class="steps"><div class="step"><b>01 · Pelajari</b><p class="muted">Baca konsep dan perhatikan contoh data serta rumus.</p></div><div class="step"><b>02 · Praktikkan</b><p class="muted">Pilih jawaban latihan berdasarkan kebutuhan perhitungan.</p></div><div class="step"><b>03 · Evaluasi</b><p class="muted">Baca umpan balik dan coba lagi jika diperlukan.</p></div></div>
+    </section>
+  </div>
+  <div id="guide" class="page hidden">
+    <section style="margin-top:0"><div class="section-head"><div><h2>Petunjuk penggunaan</h2><p>Ikuti langkah berikut untuk menggunakan media.</p></div></div>
+      <div class="card"><ol><li>Pilih topik dari menu <b>Materi</b> atau kartu pada Beranda.</li><li>Baca pengertian dan amati contoh range serta rumus.</li><li>Buka menu <b>Latihan</b> dan pilih jawaban yang paling tepat.</li><li>Tekan <b>Periksa Jawaban</b> untuk melihat hasil dan penjelasannya.</li><li>Gunakan tombol <b>Coba Lagi</b> atau kembali ke materi jika perlu.</li></ol><button class="primary" data-goto="topicListPage">Lihat Materi →</button></div>
+    </section>
+  </div>
+  <div id="topicListPage" class="page hidden">
+    <section style="margin-top:0"><div class="section-head"><div><h2>Daftar Materi</h2><p>Pilih topik untuk membuka penjelasan dan contoh.</p></div></div>
+      <div class="grid" id="allTopics"></div>
+      <p><button class="ghost" data-goto="home">← Kembali ke Beranda</button></p>
+    </section>
+  </div>
+  <div id="lessonPage" class="page hidden">
+    <section style="margin-top:0"><div class="section-head"><div><h2 id="lessonPageTitle">Halaman Materi</h2><p>Beranda › Daftar Materi › Materi</p></div></div>
+      <div class="content-layout"><aside class="card sidebar"><h3>Pilih Topik</h3><div class="topic-list" id="topicList"></div></aside><article class="card lesson" id="lessonContent" aria-live="polite"></article></div>
+      <p><button class="ghost" data-goto="topicListPage">← Kembali ke Daftar Materi</button></p>
+    </section>
+  </div>
+  <div id="practice" class="page hidden">
+    <section style="margin-top:0"><div class="section-head"><div><h2>Latihan Interaktif</h2><p>Jawab pertanyaan berikut, lalu periksa jawabanmu.</p></div><div class="score" id="scoreLabel">Skor: 0 / 6</div></div>
+      <div class="card"><div class="progress" aria-label="Kemajuan latihan"><span id="progressBar"></span></div><p class="muted" id="questionCount">Soal 1 dari 6</p><div class="quiz-question" id="questionText"></div><form id="quizForm"><div id="options"></div><button class="primary" type="submit">Periksa Jawaban</button></form><p class="muted">Setelah diperiksa, baca umpan balik dan penjelasan jawaban.</p></div>
+    </section>
+  </div>
+  <div id="feedbackPage" class="page hidden">
+    <section style="margin-top:0"><div class="section-head"><div><h2>Umpan Balik dan Hasil</h2><p>Perhatikan alasan jawaban untuk memperkuat pemahaman.</p></div></div>
+      <div class="card"><div id="feedbackStatus" class="score" role="status" aria-live="polite">Jawaban diperiksa</div><p id="feedbackExplanation"></p><div class="note"><b>Skor sementara</b><p class="score" id="feedbackScore">0 / 6</p><p class="muted" id="feedbackProgress">Soal 1 dari 6</p></div>
+      <div style="display:flex;gap:10px;flex-wrap:wrap;margin-top:18px"><button class="primary" id="feedbackNext">Soal Berikutnya →</button><button class="secondary" id="feedbackRetry">Coba Lagi</button><button class="ghost" data-goto="lessonPage">Kembali ke Materi</button><button class="ghost" data-goto="home">Beranda</button></div></div>
+    </section>
+  </div>
+</main>
+<footer>ExcelFun · Media pembelajaran interaktif berbasis web · Materi rumus dasar Microsoft Excel · Rancangan prototipe</footer>
+<script>
+const topics = [
+ {id:'range',name:'Range',symbol:'B:B',short:'Memahami rentang sel, misalnya B2:B5.',definition:'Range adalah kumpulan sel yang dipilih dalam lembar kerja. Penulisan B2:B5 berarti rentang sel dimulai dari B2 sampai B5.',formula:'B2:B5',example:'Rentang B2:B5 mencakup empat sel: B2, B3, B4, dan B5.',use:'Gunakan tanda titik dua (:) untuk menunjukkan rentang dari sel awal ke sel akhir.',result:'Jika B2=70, B3=80, B4=75, dan B5=85, maka B2:B5 mencakup seluruh empat nilai tersebut.'},
+ {id:'sum',name:'SUM',symbol:'Σ',short:'Menjumlahkan nilai dalam suatu rentang.',definition:'SUM digunakan untuk menjumlahkan nilai numerik dalam satu atau beberapa sel.',formula:'=SUM(B2:B5)',example:'Jika B2=70, B3=80, B4=75, dan B5=85, hasil =SUM(B2:B5) adalah 310.',use:'Awali rumus dengan tanda sama dengan (=), tulis SUM, lalu masukkan rentang di dalam tanda kurung.',result:'SUM menghitung total nilai dalam rentang yang ditentukan.'},
+ {id:'average',name:'AVERAGE',symbol:'x̄',short:'Menghitung rata-rata data numerik.',definition:'AVERAGE digunakan untuk menghitung nilai rata-rata dari data numerik dalam rentang sel.',formula:'=AVERAGE(B2:B5)',example:'Nilai 70, 80, 75, dan 85 memiliki rata-rata 77,5.',use:'Pastikan rentang sel yang dimasukkan sesuai dengan data yang ingin dihitung.',result:'AVERAGE menghasilkan jumlah nilai numerik dibagi banyaknya nilai numerik.'},
+ {id:'max',name:'MAX',symbol:'↑',short:'Mencari nilai terbesar dalam rentang.',definition:'MAX digunakan untuk mendapatkan nilai numerik terbesar dari rentang data.',formula:'=MAX(B2:B5)',example:'Dari nilai 70, 80, 75, dan 85, hasil MAX adalah 85.',use:'Pilih rentang yang memuat semua nilai yang ingin dibandingkan.',result:'MAX mengembalikan nilai tertinggi dalam rentang.'},
+ {id:'min',name:'MIN',symbol:'↓',short:'Mencari nilai terkecil dalam rentang.',definition:'MIN digunakan untuk mendapatkan nilai numerik terkecil dari rentang data.',formula:'=MIN(B2:B5)',example:'Dari nilai 70, 80, 75, dan 85, hasil MIN adalah 70.',use:'Pilih rentang yang memuat semua nilai yang ingin dibandingkan.',result:'MIN mengembalikan nilai terendah dalam rentang.'}
+];
+const questions=[
+ {q:'Range B2:B5 mencakup sel …',opts:['B2 saja','B2 sampai B5','B2 sampai B6','Seluruh kolom B'],a:1,why:'Rentang B2:B5 dimulai dari sel B2 dan berakhir pada sel B5.'},
+ {q:'Rumus yang tepat untuk menjumlahkan nilai B2 sampai B5 adalah …',opts:['=AVERAGE(B2:B5)','=SUM(B2:B5)','=MAX(B2:B5)','=MIN(B2:B5)'],a:1,why:'SUM digunakan untuk menjumlahkan nilai dalam rentang.'},
+ {q:'Fungsi untuk menghitung rata-rata data numerik adalah …',opts:['SUM','MIN','AVERAGE','MAX'],a:2,why:'AVERAGE menghitung rata-rata nilai numerik dalam rentang.'},
+ {q:'Fungsi untuk memperoleh nilai terbesar dalam rentang adalah …',opts:['MAX','MIN','SUM','AVERAGE'],a:0,why:'MAX menghasilkan nilai terbesar dari data numerik.'},
+ {q:'Fungsi untuk memperoleh nilai terkecil dalam rentang adalah …',opts:['SUM','AVERAGE','MAX','MIN'],a:3,why:'MIN menghasilkan nilai terkecil dari data numerik.'},
+ {q:'Manakah penulisan rumus yang benar untuk menjumlahkan B2:B5?',opts:['SUM(B2:B5)','=SUM(B2:B5)','SUM=B2:B5','=B2:B5SUM'],a:1,why:'Rumus Excel diawali tanda sama dengan (=), lalu nama fungsi dan rentangnya.'}
+];
+let currentTopic='range', qIndex=0, score=0, lastCorrect=false, lastExplanation='', quizFinished=false;
+function showPage(id){document.querySelectorAll('.page').forEach(p=>p.classList.toggle('hidden',p.id!==id));document.querySelectorAll('.navlink').forEach(b=>b.classList.toggle('active',b.dataset.page===id));window.scrollTo({top:0,behavior:'smooth'});if(id==='practice')renderQuestion();if(id==='lessonPage'){renderTopics();renderLesson();}}
+document.querySelectorAll('[data-page]').forEach(b=>b.addEventListener('click',()=>showPage(b.dataset.page)));
+document.querySelectorAll('[data-goto]').forEach(b=>b.addEventListener('click',()=>showPage(b.dataset.goto)));
+function openTopic(id){currentTopic=id;showPage('lessonPage');}
+function topicCards(target='topicListPage'){return topics.map(t=>`<button class="card topic-card" data-topic="${t.id}"><span class="iconbox">${t.symbol}</span><h3>${t.name}</h3><p>${t.short}</p><p style="margin-top:12px;color:#2563a6;font-weight:700">Pelajari →</p></button>`).join('');}
+document.getElementById('homeTopics').innerHTML=topicCards();
+document.getElementById('allTopics').innerHTML=topicCards();
+['homeTopics','allTopics'].forEach(id=>document.getElementById(id).addEventListener('click',e=>{const b=e.target.closest('[data-topic]');if(b)openTopic(b.dataset.topic);}));
+function renderTopics(){document.getElementById('topicList').innerHTML=topics.map(t=>`<button class="${t.id===currentTopic?'active':''}" data-topic="${t.id}">${t.name}</button>`).join('');document.getElementById('topicList').querySelectorAll('button').forEach(b=>b.addEventListener('click',()=>{currentTopic=b.dataset.topic;renderTopics();renderLesson();}));}
+function renderLesson(){const t=topics.find(x=>x.id===currentTopic);document.getElementById('lessonPageTitle').textContent='Materi: '+t.name;document.getElementById('lessonContent').innerHTML=`<p class="eyebrow" style="color:#2563a6">Materi Microsoft Excel</p><h2>${t.name}</h2><p>${t.definition}</p><h3>Contoh data</h3><table class="data-table"><tr><th>Sel</th><th>Nilai</th></tr><tr><td>B2</td><td>70</td></tr><tr><td>B3</td><td>80</td></tr><tr><td>B4</td><td>75</td></tr><tr><td>B5</td><td>85</td></tr></table><h3>Penulisan range/rumus</h3><div class="formula">${t.formula}</div><p>${t.example}</p><div class="note"><b>Langkah penggunaan</b><p>${t.use}</p></div><h3>Ingat</h3><p>${t.result}</p><button class="primary" id="lessonQuiz">Coba Latihan →</button> <button class="secondary" id="lessonNext">Materi Berikutnya →</button>`;document.getElementById('lessonQuiz').addEventListener('click',()=>{qIndex=0;score=0;quizFinished=false;showPage('practice');});document.getElementById('lessonNext').addEventListener('click',()=>{const i=topics.findIndex(x=>x.id===currentTopic);currentTopic=topics[(i+1)%topics.length].id;renderTopics();renderLesson();});}
+renderTopics();renderLesson();
+function renderQuestion(){if(quizFinished)return;const q=questions[qIndex];document.getElementById('questionCount').textContent=`Soal ${qIndex+1} dari ${questions.length}`;document.getElementById('progressBar').style.width=`${qIndex/questions.length*100}%`;document.getElementById('questionText').textContent=q.q;document.getElementById('options').innerHTML=q.opts.map((o,i)=>`<label class="option"><input type="radio" name="answer" value="${i}"><span>${String.fromCharCode(65+i)}. ${o}</span></label>`).join('');document.getElementById('scoreLabel').textContent=`Skor: ${score} / ${questions.length}`;}
+document.getElementById('quizForm').addEventListener('submit',e=>{e.preventDefault();const chosen=document.querySelector('input[name="answer"]:checked');if(!chosen){document.getElementById('questionText').textContent='Pilih salah satu jawaban terlebih dahulu, lalu tekan Periksa Jawaban.';return;}const q=questions[qIndex];lastCorrect=Number(chosen.value)===q.a;if(lastCorrect)score++;lastExplanation=q.why;document.getElementById('feedbackStatus').textContent=lastCorrect?'Tepat! Jawaban kamu benar.':'Belum tepat. Yuk, pahami kembali konsepnya.';document.getElementById('feedbackExplanation').textContent=q.why;document.getElementById('feedbackScore').textContent=`${score} / ${questions.length}`;document.getElementById('feedbackProgress').textContent=`Soal ${qIndex+1} dari ${questions.length}`;document.getElementById('feedbackNext').textContent=qIndex===questions.length-1?'Lihat Hasil Akhir →':'Soal Berikutnya →';showPage('feedbackPage');});
+document.getElementById('feedbackNext').addEventListener('click',()=>{if(qIndex<questions.length-1){qIndex++;showPage('practice');}else{quizFinished=true;document.getElementById('feedbackStatus').textContent='Latihan selesai!';document.getElementById('feedbackExplanation').textContent=`Skor akhir kamu ${score} dari ${questions.length}. ${score===questions.length?'Hebat, semua jawaban benar!':score>=4?'Bagus! Pelajari kembali bagian yang masih keliru.':'Coba pelajari materi lagi, lalu ulangi latihan.'}`;document.getElementById('feedbackProgress').textContent='Semua 6 soal telah dikerjakan.';document.getElementById('feedbackNext').classList.add('hidden');showPage('feedbackPage');}});
+document.getElementById('feedbackRetry').addEventListener('click',()=>{qIndex=0;score=0;quizFinished=false;document.getElementById('feedbackNext').classList.remove('hidden');showPage('practice');});
+</script>
+</body>
+</html>
